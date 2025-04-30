@@ -170,6 +170,7 @@
                         android:src="@drawable/bldg1" />
 
                     <Button
+                        android:id="@+id/match_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -233,6 +234,7 @@
                         android:src="@drawable/bldg2" />
 
                     <Button
+                        android:id="@+id/match_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"

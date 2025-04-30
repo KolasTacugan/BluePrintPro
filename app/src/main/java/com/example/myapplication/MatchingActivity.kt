@@ -16,8 +16,6 @@ class MatchingActivity : Activity() {
         setContentView(R.layout.activity_matching)
 
         matchButton = findViewById(R.id.match_button)
-        leftArrow = findViewById(R.id.left_arrow)
-        rightArrow = findViewById(R.id.rightArrow)
 
         matchButton.setOnClickListener {
             Toast.makeText(this, "Match clicked!", Toast.LENGTH_SHORT).show()
