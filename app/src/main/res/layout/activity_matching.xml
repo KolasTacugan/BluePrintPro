@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/menuButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_menu"
+            android:contentDescription="Menu" />
+
+        <TextView
+            android:id="@+id/topBarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matching"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- First Spinner Layout -->
+    <LinearLayout
+        android:id="@+id/spinnerLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp" />
+
+        <Spinner
+            android:id="@+id/styleSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp" />
+    </LinearLayout>
+
+    <!-- Second Spinner Layout -->
+    <LinearLayout
+        android:id="@+id/spinnerLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Spinner
+            android:id="@+id/typeSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp" />
+
+        <Spinner
+            android:id="@+id/locationSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp" />
+    </LinearLayout>
+
+    <!-- Profile Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profileCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:src="@drawable/sample_image"
+                android:scaleType="centerCrop"
+                 />
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monique Hir"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/profileSpecialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Residential Architecture"
+                android:textColor="#999999"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/profileDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Experienced in designing single-family homes, townhouses, and multi-family residences."
+                android:textColor="#666666"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:padding="8dp" />
+
+            <Button
+                android:id="@+id/match_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Match"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#003366"
+                android:textColor="#FFFFFF"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Left Arrow -->
+    <ImageView
+        android:id="@+id/left_arrow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_left_arrow"
+        android:background="@drawable/round_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/profileCard"
+        app:layout_constraintTop_toTopOf="@id/profileCard"
+        app:layout_constraintBottom_toTopOf="@id/bottomBarBackground"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Right Arrow -->
+    <ImageView
+        android:id="@+id/rightArrow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_right_arrow"
+        android:background="@drawable/round_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/profileCard"
+        app:layout_constraintTop_toTopOf="@id/profileCard"
+        app:layout_constraintBottom_toTopOf="@id/bottomBarBackground"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Bottom Blue Rectangle -->
+    <View
+        android:id="@+id/bottomBarBackground"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#003366"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Bottom Navigation Icons -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/homeIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_home"
+            android:contentDescription="Home"
+            android:layout_marginHorizontal="24dp" />
+
+        <ImageView
+            android:id="@+id/chatIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_folder"
+            android:contentDescription="Chat"
+            android:layout_marginHorizontal="24dp" />
+
+        <ImageView
+            android:id="@+id/historyIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_clock"
+            android:contentDescription="History"
+            android:layout_marginHorizontal="24dp" />
+
+        <ImageView
+            android:id="@+id/locationIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_profile"
+            android:contentDescription="Location"
+            android:layout_marginHorizontal="24dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

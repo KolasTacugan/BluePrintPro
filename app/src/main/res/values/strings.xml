@@ -1,0 +1,35 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">My Application</string>
+
+    <!-- Existing Edit Fields -->
+    <string name="fname">Edit</string>
+    <string name="lname">Edit</string>
+    <string name="sex">Edit</string>
+    <string name="phonenum">Edit</string>
+    <string name="email">Edit</string>
+
+    <!-- Spinner Options -->
+    <string-array name="style_options">
+        <item>Modern</item>
+        <item>Classic</item>
+        <item>Minimalist</item>
+    </string-array>
+
+    <string-array name="budget_options">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="type_options">
+        <item>Residential</item>
+        <item>Commercial</item>
+    </string-array>
+
+    <string-array name="location_options">
+        <item>New York</item>
+        <item>Los Angeles</item>
+        <item>Chicago</item>
+    </string-array>
+</resources>

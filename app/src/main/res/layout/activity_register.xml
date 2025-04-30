@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <!-- First Background Image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <!-- Second Transparent Background Overlay -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/border"
+        android:alpha="1" />
+
+    <!-- Registration Form Layout -->
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="169dp"
+            android:layout_height="144dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/purplelogo" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="REGISTER"
+            android:textColor="#6A1E55"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat" />
+
+        <!-- Username -->
+        <EditText
+            android:id="@+id/edittext_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:padding="14dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:textColor="#3B1C32"
+            android:backgroundTint="#6A1E55" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/edittext_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="14dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:textColor="#3B1C32"
+            android:backgroundTint="#6A1E55" />
+
+        <!-- Confirm Password -->
+        <EditText
+            android:id="@+id/edittext_confirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="14dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"
+            android:textColor="#3B1C32"
+            android:backgroundTint="#6A1E55" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="16sp"
+            android:textColor="#FFF5E1"
+            android:background="#6A1E55"
+            android:padding="14dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Go to Login Button -->
+        <Button
+            android:id="@+id/button_gotologin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to Login"
+            android:textSize="16sp"
+            android:textColor="#FFF5E1"
+            android:background="#3B1C32"
+            android:padding="14dp" />
+    </LinearLayout>
+</FrameLayout>

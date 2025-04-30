@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <!-- Profile Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingTop="50dp"
+            android:text="PROFILE"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:textColor="#FFF5E1"
+            android:gravity="center"
+            android:background="#6A1E55"
+            android:padding="5dp"/>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/profile"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Information Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3B1C32"
+            android:padding="10dp"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="INFORMATION"
+                android:textColor="#FFF5E1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Profile Details in a CardView -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cardCornerRadius="12dp"
+            android:cardElevation="10dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                        <TextView android:text="First Name:         " android:textStyle="bold" android:textSize="18sp" />
+                        <TextView android:id="@+id/textview_fname" android:text="@string/fname" android:textSize="18sp" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Last Name:" android:textStyle="bold" android:textSize="18sp" />
+                        <TextView android:id="@+id/textview_lname" android:text="@string/lname" android:textSize="18sp" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Sex:" android:textStyle="bold" android:textSize="18sp" />
+                        <TextView android:id="@+id/textview_sex" android:text="@string/sex" android:textSize="18sp" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Phone Num:" android:textStyle="bold" android:textSize="18sp" />
+                        <TextView android:id="@+id/textview_number" android:text="@string/phonenum" android:textSize="18sp" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView android:text="Email: " android:textStyle="bold" android:textSize="18sp" />
+                        <TextView android:id="@+id/textview_email" android:text="@string/email" android:textSize="18sp" />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="◀ Back"
+            android:textSize="20sp"
+            android:textColor="#FFF5E1"
+            android:background="#6A1E55"
+            android:layout_marginTop="60dp"/>
+
+    </LinearLayout>
+</ScrollView>
