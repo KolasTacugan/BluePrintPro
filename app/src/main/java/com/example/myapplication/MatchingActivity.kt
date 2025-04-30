@@ -7,9 +7,7 @@ import android.widget.ImageView
 import android.widget.Toast
 
 class MatchingActivity : Activity() {
-    private lateinit var matchButton: Button
-    private lateinit var leftArrow: ImageView
-    private lateinit var rightArrow: ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
