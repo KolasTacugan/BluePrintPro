@@ -11,12 +11,12 @@ class DevelopersActivity : Activity() {
 
         setContentView(R.layout.activity_developers)
 
-        val button_back_dev = findViewById<Button>(R.id.button_back_dev)
-
-        button_back_dev.setOnClickListener{
-            val intent = Intent(this, LandingActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        val button_back_dev = findViewById<Button>(R.id.button_back_dev)
+//
+//        button_back_dev.setOnClickListener{
+//            val intent = Intent(this, LandingActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
     }
 }
