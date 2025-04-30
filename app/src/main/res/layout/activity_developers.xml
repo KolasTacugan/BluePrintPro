@@ -76,15 +76,18 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/dev1_photo"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:background="#FFF5E1"
-                        android:src="@drawable/nic"
-                        android:scaleType="centerCrop"
                         android:layout_marginEnd="16dp"
-                        android:cornerRadius="50dp"/>
+                        android:background="#FFF5E1"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/nic"
+                        app:shapeAppearanceOverlay="@style/RoundedImageView"/>
+
+
+
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -150,15 +153,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/dev2_photo"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:background="#FFF5E1"
-                        android:src="@drawable/sam"
-                        android:scaleType="centerCrop"
                         android:layout_marginEnd="16dp"
-                        android:cornerRadius="50dp"/>
+                        android:background="#FFF5E1"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sam"
+                        app:shapeAppearanceOverlay="@style/RoundedImageView"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -224,15 +227,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/dev3_photo"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:background="#FFF5E1"
-                        android:src="@drawable/gen"
-                        android:scaleType="centerCrop"
                         android:layout_marginEnd="16dp"
-                        android:cornerRadius="50dp"/>
+                        android:background="#FFF5E1"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/gen"
+                        app:shapeAppearanceOverlay="@style/RoundedImageView"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
