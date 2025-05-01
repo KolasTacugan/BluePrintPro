@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 class LoginActivity : Activity() {
@@ -16,7 +17,7 @@ class LoginActivity : Activity() {
         val edittextUsername = findViewById<EditText>(R.id.edittext_username)
         val edittextPassword = findViewById<EditText>(R.id.edittext_password)
         val buttonLogin = findViewById<Button>(R.id.button_login)
-        val buttonRegister = findViewById<Button>(R.id.button_register)
+        val buttonRegister = findViewById<TextView>(R.id.text_register)
 
         val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
 
