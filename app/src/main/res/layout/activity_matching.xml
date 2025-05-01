@@ -160,13 +160,13 @@
                         android:src="@drawable/bldg1" />
 
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="350dp"
+                        android:layout_height="49dp"
                         android:layout_marginTop="8dp"
-                        android:text="Match"
                         android:backgroundTint="#003366"
-                        android:textColor="#FFFFFF"
-                        android:drawableEnd="@drawable/ic_plus" />
+                        android:drawableEnd="@drawable/ic_plus"
+                        android:text="Match"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
