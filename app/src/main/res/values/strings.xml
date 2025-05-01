@@ -12,7 +12,8 @@
     <!-- Spinner Options -->
     <string-array name="style_options">
         <item>Modern</item>
-        <item>Classic</item>
+        <item>Contemporary</item>
+        <item>Traditional</item>
         <item>Minimalist</item>
     </string-array>
 
@@ -25,11 +26,13 @@
     <string-array name="type_options">
         <item>Residential</item>
         <item>Commercial</item>
+        <item>Industrial</item>
     </string-array>
 
     <string-array name="location_options">
-        <item>New York</item>
-        <item>Los Angeles</item>
-        <item>Chicago</item>
+        <item>Urban</item>
+        <item>Suburban</item>
+        <item>Rural</item>
     </string-array>
+
 </resources>
