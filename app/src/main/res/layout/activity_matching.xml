@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
@@ -57,7 +58,8 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             android:background="@drawable/spinner_background"
-            android:padding="8dp" />
+            android:padding="8dp"
+            tools:entries="@array/style_options"/>
 
         <Spinner
             android:id="@+id/budgetSpinner"
@@ -66,7 +68,8 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             android:background="@drawable/spinner_background"
-            android:padding="8dp" />
+            android:padding="8dp"
+            tools:entries="@array/budget_options"/>
 
         <Spinner
             android:id="@+id/typeSpinner"
@@ -75,7 +78,8 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             android:background="@drawable/spinner_background"
-            android:padding="8dp" />
+            android:padding="8dp"
+            tools:entries="@array/type_options"/>
 
         <Spinner
             android:id="@+id/locationSpinner"
@@ -84,7 +88,8 @@
             android:layout_columnWeight="1"
             android:layout_margin="8dp"
             android:background="@drawable/spinner_background"
-            android:padding="8dp" />
+            android:padding="8dp"
+            tools:entries="@array/location_options"/>
     </GridLayout>
 
     <!-- Match with Architect Title -->
@@ -149,6 +154,20 @@
                             android:orientation="vertical"
                             android:layout_marginStart="16dp">
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Monique Hir"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Residential Architecture"
+                                android:textSize="12sp"
+                                android:textColor="#666666" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -160,13 +179,15 @@
                         android:src="@drawable/bldg1" />
 
                     <Button
-                        android:layout_width="350dp"
-                        android:layout_height="49dp"
+                        android:id="@+id/match_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:backgroundTint="#003366"
-                        android:drawableEnd="@drawable/ic_plus"
                         android:text="Match"
-                        android:textColor="#FFFFFF" />
+                        android:backgroundTint="#003366"
+                        android:textColor="#FFFFFF"
+                        android:drawableEnd="@drawable/ic_plus"
+                        tools:ignore="DuplicateIds" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -203,12 +224,16 @@
                             android:layout_marginStart="16dp">
 
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="Mina Myoui"
                                 android:textStyle="bold"
                                 android:textSize="16sp"
                                 android:textColor="#000000" />
 
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="Commercial Architecture"
                                 android:textSize="12sp"
                                 android:textColor="#666666" />
@@ -223,6 +248,7 @@
                         android:src="@drawable/bldg2" />
 
                     <Button
+                        android:id="@+id/match_button_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
