@@ -275,7 +275,7 @@
             android:layout_height="32dp"
             android:src="@drawable/ic_clock"
             android:layout_marginHorizontal="24dp" />
-
+0
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
