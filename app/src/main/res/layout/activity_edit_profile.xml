@@ -3,79 +3,193 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg5">
+    android:background="#0D3C80">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:padding="15dp">
+        android:gravity="center_horizontal">
 
-        <!-- Edit Profile Header -->
-        <TextView
+        <!-- FrameLayout to stack the profile image on top of the CardView -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Edit Profile"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:textColor="#FFF5E1"
-            android:gravity="center"
-            android:layout_marginTop="40dp"
-            android:background="#6A1E55"
-            android:padding="10dp"/>
+            android:layout_height="wrap_content">
 
-        <!-- Profile Image -->
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/profile"
-            android:layout_marginTop="15dp"
-            android:contentDescription="Profile Picture"/>
-
-        <!-- Profile Edit Section -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="4dp"
-            android:layout_marginTop="10dp"
-            android:padding="5dp">
-
-
-
-        <LinearLayout
+            <!-- White full-width card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#FFFFFF">
 
-                <!-- First Name -->
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="First Name" android:textColor="#888888" android:textSize="14sp"/>
-                <EditText android:id="@+id/edittext_edit_fName" android:layout_width="match_parent" android:layout_height="35dp" android:padding="5dp" android:hint="Edit First Name"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-                <!-- Last Name -->
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Last Name" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="8dp"/>
-                <EditText android:id="@+id/edittext_edit_lName" android:layout_width="match_parent" android:layout_height="35dp" android:padding="5dp" android:hint="Edit Last Name"/>
+                    <!-- Spacer to offset for image -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp" />
 
-                <!-- Email -->
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Email" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="8dp"/>
-                <EditText android:id="@+id/edittext_edit_email" android:layout_width="match_parent" android:layout_height="35dp" android:padding="5dp" android:hint="Enter your email"/>
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Profile"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="16dp"/>
 
-                <!-- Phone Number -->
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Phone Number" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="8dp"/>
-                <EditText android:id="@+id/edittext_edit_phoneNum" android:layout_width="match_parent" android:layout_height="35dp" android:padding="5dp" android:hint="Enter your number"/>
+                    <!-- First Name -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First Name"
+                        android:textColor="#444"
+                        android:textSize="14sp"/>
+                    <EditText
+                        android:id="@+id/edittext_edit_fName"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="10dp"
+                        android:hint="Enter first name"
+                        android:textColor="#000"/>
 
-                <!-- Sex -->
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sex" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="8dp"/>
-                <EditText android:id="@+id/edittext_edit_gender" android:layout_width="match_parent" android:layout_height="35dp" android:padding="5dp" android:hint="Male or Female"/>
+                    <!-- Middle Name -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Middle Name"
+                        android:textColor="#444"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:id="@+id/edittext_edit_mName"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="10dp"
+                        android:hint="Enter middle name"
+                        android:textColor="#000"/>
 
-                <!-- Update Button -->
-                <Button android:id="@+id/button_update_information" android:layout_width="match_parent" android:layout_height="45dp" android:layout_marginTop="40dp" android:text="Update Information" android:textSize="16sp" android:textColor="#ffffff" android:background="#6A1E55"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    <!-- Last Name -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Name"
+                        android:textColor="#444"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:id="@+id/edittext_edit_lName"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="10dp"
+                        android:hint="Enter last name"
+                        android:textColor="#000"/>
 
-        <!-- Back Button -->
-        <Button android:id="@+id/button_back_settings" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="◀ Back" android:textSize="16sp" android:textColor="#FFF5E1" android:background="#6A1E55" android:layout_marginTop="10dp"/>
+                    <!-- Gender -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gender"
+                        android:textColor="#444"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:id="@+id/edittext_edit_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="10dp"
+                        android:hint="Enter gender"
+                        android:textColor="#000"/>
 
+                    <!-- Phone Number -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number"
+                        android:textColor="#444"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:id="@+id/edittext_edit_phoneNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="10dp"
+                        android:hint="Enter phone number"
+                        android:textColor="#000"/>
+
+                    <!-- Email -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email Address"
+                        android:textColor="#444"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"/>
+                    <EditText
+                        android:id="@+id/edittext_edit_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="10dp"
+                        android:hint="Enter email"
+                        android:textColor="#000"/>
+
+                    <!-- Change Password Button -->
+                    <Button
+                        android:id="@+id/btn_change_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Change Password"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#0D3C80"
+                        android:layout_marginTop="24dp"
+                        android:padding="10dp"
+                        android:textStyle="bold"/>
+
+                    <!-- Save Button (smaller) -->
+                    <Button
+                        android:id="@+id/btn_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save"
+                        android:textColor="#000"
+                        android:backgroundTint="#E3E9F7"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="12dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Profile Image Floating at top center -->
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/profile"
+                android:background="@drawable/circle_background1"
+                android:padding="4dp"
+                android:elevation="12dp"/>
+        </FrameLayout>
     </LinearLayout>
 </ScrollView>
