@@ -334,7 +334,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="#0D3C80"
         android:text="Reupload Design"
         android:textAllCaps="false"

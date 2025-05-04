@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangePassVerifyActivity"
+    android:background="@color/white">
+
+    <!-- White Container at the Top -->
+    <LinearLayout
+        android:id="@+id/layout_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:background="@drawable/white_top_round"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change password"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Verification Code"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Code Input Circles -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp"
+            android:gravity="center">
+
+            <EditText
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/code_circle"
+                android:gravity="center"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:layout_margin="8dp"
+                android:id="@+id/et_code1" />
+
+            <EditText
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/code_circle"
+                android:gravity="center"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:layout_margin="8dp"
+                android:id="@+id/et_code2" />
+
+            <EditText
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/code_circle"
+                android:gravity="center"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:layout_margin="8dp"
+                android:id="@+id/et_code3" />
+
+            <EditText
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/code_circle"
+                android:gravity="center"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:layout_margin="8dp"
+                android:id="@+id/et_code4" />
+        </LinearLayout>
+
+        <!-- Resend Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Didn't receive a code? "
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/text_resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resend"
+            android:textColor="#0D3C80"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_gravity="center" />
+
+        <!-- Verify Button -->
+        <Button
+            android:id="@+id/button_verify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_linkedin"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+
+    <!-- Background Image at the Bottom -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/building" />
+</RelativeLayout>
