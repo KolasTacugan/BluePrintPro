@@ -12,7 +12,7 @@ class HomeActivity : Activity() {
 
         setContentView(R.layout.activity_home)
 
-        // Get reference to UI elements
+       /* // Get reference to UI elements
         val buttonBack = findViewById<Button>(R.id.button_back)
         val textViewFName = findViewById<TextView>(R.id.textview_fname)
         val textViewLName = findViewById<TextView>(R.id.textview_lname)
@@ -33,6 +33,6 @@ class HomeActivity : Activity() {
             startActivity(intent)
             finish() // Close HomeActivity to prevent stacking
         }
-
+*/
     }
 }

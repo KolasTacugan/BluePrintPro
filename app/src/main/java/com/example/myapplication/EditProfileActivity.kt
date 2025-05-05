@@ -19,7 +19,7 @@ class EditProfileActivity : Activity() {
         val editEmail = findViewById<EditText>(R.id.edittext_edit_email)
         val editPhone = findViewById<EditText>(R.id.edittext_edit_phoneNum)
         val editGender = findViewById<EditText>(R.id.edittext_edit_gender)
-        val buttonUpdate = findViewById<Button>(R.id.button_update_information)
+       // val buttonUpdate = findViewById<Button>(R.id.button_update_information)
 
 
         editFName.setText(UserData.firstName)
@@ -28,7 +28,7 @@ class EditProfileActivity : Activity() {
         editPhone.setText(UserData.phone)
         editGender.setText(UserData.gender)
 
-        buttonUpdate.setOnClickListener {
+        /*buttonUpdate.setOnClickListener {
 
             UserData.firstName = editFName.text.toString()
             UserData.lastName = editLName.text.toString()
@@ -42,6 +42,6 @@ class EditProfileActivity : Activity() {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
-        }
+        }*/
     }
 }
