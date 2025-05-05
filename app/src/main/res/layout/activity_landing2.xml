@@ -114,6 +114,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_viewProfile"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginBottom="5dp"
