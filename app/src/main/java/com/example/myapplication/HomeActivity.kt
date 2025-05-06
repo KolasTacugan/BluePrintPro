@@ -1,38 +1,85 @@
 package com.example.myapplication
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 class HomeActivity : Activity() {
+
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var logoutButton: Button
+    private lateinit var userNameText: TextView
+    private lateinit var userEmailText: TextView
+    private lateinit var userPhoneText: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_home)
 
-       /* // Get reference to UI elements
-        val buttonBack = findViewById<Button>(R.id.button_back)
-        val textViewFName = findViewById<TextView>(R.id.textview_fname)
-        val textViewLName = findViewById<TextView>(R.id.textview_lname)
-        val textViewSex = findViewById<TextView>(R.id.textview_sex)
-        val textViewPhone = findViewById<TextView>(R.id.textview_number)
-        val textViewEmail = findViewById<TextView>(R.id.textview_email)
+        // Init views
+        logoutButton = findViewById(R.id.logoutButton)
+        userNameText = findViewById(R.id.userName)
+        userEmailText = findViewById(R.id.userEmail)
+        userPhoneText = findViewById(R.id.userPhone)
 
-        // Load user data (assuming stored in UserData object)
-        textViewFName.text = UserData.firstName
-        textViewLName.text = UserData.lastName
-        textViewSex.text = UserData.gender
-        textViewPhone.text = UserData.phone
-        textViewEmail.text = UserData.email
+        // Set up GoogleSignIn client
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // Handle back button click
-        buttonBack.setOnClickListener {
-            val intent = Intent(this, LandingActivity::class.java)
-            startActivity(intent)
-            finish() // Close HomeActivity to prevent stacking
+        // Retrieve shared preferences
+        val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val manualLogin = sharedPreferences.getBoolean("manualLogin", false)
+
+        // Display user data
+        if (manualLogin) {
+            val username = sharedPreferences.getString("username", "Manual User")
+            val email = sharedPreferences.getString("email", "N/A")
+            val phone = sharedPreferences.getString("phone", "N/A")
+
+            userNameText.text = username
+            userEmailText.text = email
+            userPhoneText.text = phone
+        } else {
+            val acct = GoogleSignIn.getLastSignedInAccount(this)
+            if (acct != null) {
+                userNameText.text = acct.displayName ?: "Google User"
+                userEmailText.text = acct.email ?: "No Email"
+                userPhoneText.text = "Signed in via Google"
+            } else {
+                userNameText.text = "Guest"
+                userEmailText.text = "Not signed in"
+                userPhoneText.text = ""
+            }
         }
-*/
+
+        // Logout logic
+        logoutButton.setOnClickListener {
+            sharedPreferences.edit().clear().apply()  // Clear local session
+
+            if (!manualLogin) {
+                // Sign out from Google if it was a Google login
+                googleSignInClient.signOut().addOnCompleteListener {
+                    goToLogin()
+                }
+            } else {
+                goToLogin()
+            }
+        }
+    }
+
+    private fun goToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 }
