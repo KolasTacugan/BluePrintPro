@@ -13,11 +13,6 @@ class LandingActivity : Activity() {
 
         setContentView(R.layout.activity_landing2)
 
-        val logOut = findViewById<Button>(R.id.btn_viewProfile)
 
-        logOut.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
