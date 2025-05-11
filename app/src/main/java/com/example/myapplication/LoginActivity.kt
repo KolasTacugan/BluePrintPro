@@ -22,7 +22,7 @@ class LoginActivity : Activity() {
         val edittextPassword = findViewById<EditText>(R.id.edittext_password)
         val buttonLogin = findViewById<Button>(R.id.button_login)
         val textRegister = findViewById<TextView>(R.id.text_register)
-        val googleBtn = findViewById<Button>(R.id.google_btn)
+        val googleBtn = findViewById<ImageButton>(R.id.google_btn)
 
         val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
 
