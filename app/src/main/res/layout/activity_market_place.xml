@@ -259,40 +259,35 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Bottom Navigation -->
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:background="#003366"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="32dp">
 
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_home"
-            android:layout_marginHorizontal="24dp" />
+            android:src="@drawable/ic_home"/>
 
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_folder"
-            android:layout_marginHorizontal="24dp" />
+            android:layout_marginStart="48dp"
+            android:src="@drawable/wallet" />
 
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_clock"
-            android:layout_marginHorizontal="24dp" />
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_profile"
-            android:layout_marginHorizontal="24dp" />
+            android:layout_marginStart="48dp"
+            android:src="@drawable/ic_profile"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
