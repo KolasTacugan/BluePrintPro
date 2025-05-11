@@ -14,13 +14,8 @@ class WalletActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val walletOptions = listOf("GooglePay", "Gcash", "PayMaya")
-        val adapter = ArrayAdapter(
-            this,
-            R.layout.spinner_item_wallet, // custom layout
-            walletOptions
-        )
-        adapter.setDropDownViewResource(R.layout.spinner_item_wallet) // same layout for dropdown
+
+        setContentView(R.layout.activity_wallet)
 
         val googlePayButton = findViewById<Button>(R.id.btnGooglePay)
         googlePayButton.setOnClickListener {
