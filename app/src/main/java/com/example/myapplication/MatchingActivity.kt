@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -11,6 +13,7 @@ import android.widget.ArrayAdapter
 class MatchingActivity : Activity() {
     private lateinit var matchButton: Button
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_matching)
@@ -21,6 +24,7 @@ class MatchingActivity : Activity() {
         val budgetSpinner = findViewById<Spinner>(R.id.budgetSpinner)
         val typeSpinner = findViewById<Spinner>(R.id.typeSpinner)
         val locationSpinner = findViewById<Spinner>(R.id.locationSpinner)
+        val backBtn = findViewById<ImageView>(R.id.backButton)
 
 // Style Spinner
         ArrayAdapter.createFromResource(
@@ -70,5 +74,11 @@ class MatchingActivity : Activity() {
             Toast.makeText(this, "Matched with Mina Myuoi!", Toast.LENGTH_SHORT).show()
         }
 
+        backBtn.setOnClickListener {
+            val intent = Intent(this, LandingActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
     }
 }

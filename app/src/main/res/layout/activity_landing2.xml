@@ -84,6 +84,7 @@
         android:weightSum="2">
 
         <LinearLayout
+            android:id="@+id/findArchitect"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
@@ -107,6 +108,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/browseMarket"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
@@ -263,12 +265,14 @@
             android:src="@drawable/ic_home"/>
 
         <ImageView
+            android:id="@+id/walletBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="48dp"
             android:src="@drawable/wallet" />
 
         <ImageView
+            android:id="@+id/profileBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="48dp"
