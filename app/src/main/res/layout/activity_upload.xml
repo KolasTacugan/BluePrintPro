@@ -63,7 +63,7 @@
         android:id="@+id/fileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Blueprint_Ver3.pdf"
+        android:text="No file selected"
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
@@ -110,7 +110,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation">
 
-        <!-- Version Items -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,7 +127,6 @@
             android:paddingVertical="4dp" />
     </LinearLayout>
 
-    <!-- Bottom Bar Background -->
     <View
         android:id="@+id/bottomBarBackground"
         android:layout_width="0dp"
@@ -138,7 +136,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
@@ -154,7 +151,7 @@
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_home"/>
+            android:src="@drawable/ic_home" />
 
         <ImageView
             android:layout_width="32dp"
@@ -166,6 +163,6 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="48dp"
-            android:src="@drawable/ic_profile"/>
+            android:src="@drawable/ic_profile" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

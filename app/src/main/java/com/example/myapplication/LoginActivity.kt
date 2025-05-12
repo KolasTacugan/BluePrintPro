@@ -85,7 +85,7 @@ class LoginActivity : Activity() {
     }
 
     private fun navigateToLanding() {
-        val intent = Intent(this, LandingActivity::class.java)
+        val intent = Intent(this, UploadActivity::class.java)
         startActivity(intent)
         finish()
     }
