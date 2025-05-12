@@ -1,19 +1,16 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import android.widget.Spinner
 import android.widget.ArrayAdapter
 
 class MatchingActivity : Activity() {
-    private lateinit var matchButton: Button
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_matching)
@@ -26,52 +23,20 @@ class MatchingActivity : Activity() {
         val locationSpinner = findViewById<Spinner>(R.id.locationSpinner)
         val backBtn = findViewById<ImageView>(R.id.backButton)
 
-// Style Spinner
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.style_options,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            styleSpinner.adapter = adapter
-        }
+        // Set up spinners
+        setupSpinner(styleSpinner, R.array.style_options)
+        setupSpinner(budgetSpinner, R.array.budget_options)
+        setupSpinner(typeSpinner, R.array.type_options)
+        setupSpinner(locationSpinner, R.array.location_options)
 
-// Budget Spinner
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.budget_options,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            budgetSpinner.adapter = adapter
-        }
-
-// Type Spinner
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.type_options,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            typeSpinner.adapter = adapter
-        }
-
-// Location Spinner
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.location_options,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            locationSpinner.adapter = adapter
-        }
-
+        // Match with Monique
         matchButton.setOnClickListener {
-            Toast.makeText(this, "Matched with Monique Hir!", Toast.LENGTH_SHORT).show()
+            showMatchDialog("Monique Hir")
         }
 
+        // Match with Mina
         matchButton1.setOnClickListener {
-            Toast.makeText(this, "Matched with Mina Myuoi!", Toast.LENGTH_SHORT).show()
+            showMatchDialog("Mina Myuoi")
         }
 
         backBtn.setOnClickListener {
@@ -80,5 +45,26 @@ class MatchingActivity : Activity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun setupSpinner(spinner: Spinner, arrayResId: Int) {
+        ArrayAdapter.createFromResource(
+            this,
+            arrayResId,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
+    }
+
+    private fun showMatchDialog(name: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Match Found!")
+            .setMessage("You matched with $name!")
+            .setPositiveButton("Close") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 }
