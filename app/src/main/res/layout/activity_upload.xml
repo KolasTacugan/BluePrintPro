@@ -149,20 +149,23 @@
         android:paddingHorizontal="32dp">
 
         <ImageView
+            android:id="@+id/homeBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_home" />
+            android:src="@drawable/ic_home"/>
 
         <ImageView
+            android:id="@+id/walletBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="48dp"
             android:src="@drawable/wallet" />
 
         <ImageView
+            android:id="@+id/profileBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="48dp"
-            android:src="@drawable/ic_profile" />
+            android:src="@drawable/ic_profile"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

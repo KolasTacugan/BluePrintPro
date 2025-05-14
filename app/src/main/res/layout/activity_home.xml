@@ -218,6 +218,7 @@
             android:src="@drawable/wallet" />
 
         <ImageView
+            android:id="@+id/profileBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="48dp"

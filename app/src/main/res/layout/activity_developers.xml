@@ -122,11 +122,12 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btn_github_nicole"
                     android:layout_marginLeft="219dp"
                     android:layout_marginTop="23dp"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="View Linkedin"
+                    android:text="View Github"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/montserrat"
                     android:background="@drawable/button_linkedin"/>
@@ -196,11 +197,12 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btn_github_samantha"
                     android:layout_marginLeft="219dp"
                     android:layout_marginTop="23dp"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="View Linkedin"
+                    android:text="View Github"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/montserrat"
                     android:background="@drawable/button_linkedin"/>
@@ -270,11 +272,12 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btn_github_gene"
                     android:layout_marginLeft="219dp"
                     android:layout_marginTop="23dp"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="View Linkedin"
+                    android:text="View Github"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/montserrat"
                     android:background="@drawable/button_linkedin"/>
