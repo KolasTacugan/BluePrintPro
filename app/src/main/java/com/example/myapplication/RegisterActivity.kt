@@ -1,15 +1,20 @@
 package com.example.myapplication
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.myapplication.model.User
+import com.example.myapplication.network.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : Activity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -19,33 +24,42 @@ class RegisterActivity : Activity() {
         val edittextConfirmPassword = findViewById<EditText>(R.id.edittext_confrimpassword)
         val buttonRegister = findViewById<Button>(R.id.button_register)
         val buttongotologin = findViewById<TextView>(R.id.text_gotologin)
-        val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
 
         buttonRegister.setOnClickListener {
-            val username = edittextUsername.text.toString()
-            val password = edittextPassword.text.toString()
-            val confirmPassword = edittextConfirmPassword.text.toString()
+            val username = edittextUsername.text.toString().trim()
+            val password = edittextPassword.text.toString().trim()
+            val confirmPassword = edittextConfirmPassword.text.toString().trim()
 
             if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Please enter all details", Toast.LENGTH_LONG).show()
             } else if (password != confirmPassword) {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_LONG).show()
             } else {
-                val editor = sharedPreferences.edit()
-                editor.putString("username", username)
-                editor.putString("password", password)
-                editor.apply()
+                val user = User(username = username, password = password)
 
-                Toast.makeText(this, "Registration Successful", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+                ApiClient.retrofit.registerUser(user).enqueue(object : Callback<Map<String, Boolean>> {
+                    override fun onResponse(
+                        call: Call<Map<String, Boolean>>,
+                        response: Response<Map<String, Boolean>>
+                    ) {
+                        if (response.isSuccessful && response.body()?.get("success") == true) {
+                            Toast.makeText(this@RegisterActivity, "Registration Successful", Toast.LENGTH_LONG).show()
+                            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                            finish()
+                        } else {
+                            Toast.makeText(this@RegisterActivity, "Registration Failed", Toast.LENGTH_LONG).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
+                        Toast.makeText(this@RegisterActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+                    }
+                })
             }
         }
 
         buttongotologin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }

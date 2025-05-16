@@ -18,7 +18,7 @@ class LandingActivity : Activity() {
         val archiBtn = findViewById<LinearLayout>(R.id.findArchitect)
         val marketBtn = findViewById<LinearLayout>(R.id.browseMarket)
         val profileBtn = findViewById<ImageView>(R.id.profileBtn)
-        val walletBtn = findViewById<ImageView>(R.id.walletBtn)
+        val transacBtn = findViewById<ImageView>(R.id.walletBtn)
 
         archiBtn.setOnClickListener {
             val intent = Intent(this, MatchingActivity::class.java)
@@ -41,11 +41,12 @@ class LandingActivity : Activity() {
             finish()
         }
 
-        walletBtn.setOnClickListener {
+        transacBtn.setOnClickListener {
             val intent = Intent(this, PaymentActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
         }
+
     }
 }

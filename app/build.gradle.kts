@@ -56,14 +56,14 @@ android {
 
 
 dependencies {
+    //we added
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("com.google.android.material:material:1.9.0")
-
     implementation ("com.google.android.gms:play-services-wallet:19.3.0")
-
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-common-ktx:20.4.2")
 
+    //already added
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -83,6 +83,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //we added
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
 
 }
