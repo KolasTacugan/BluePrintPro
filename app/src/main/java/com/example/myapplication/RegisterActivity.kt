@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -53,6 +54,7 @@ class RegisterActivity : Activity() {
 
                     override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
                         Toast.makeText(this@RegisterActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+                        Log.e("Registration", "Network error: ", t)
                     }
                 })
             }

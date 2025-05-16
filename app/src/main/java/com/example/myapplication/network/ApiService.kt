@@ -6,6 +6,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiService {
-    @POST("user")
+    @POST("/user")
     fun registerUser(@Body user: User): Call<Map<String, Boolean>>
 }
