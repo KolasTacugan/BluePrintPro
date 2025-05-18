@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="96dp"
+        android:text="Dashboard"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/chatIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="28dp"
+        android:contentDescription="Chat"
+        android:src="@drawable/chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:text="Welcome, Architect Kor!"
+        android:textColor="#00214D"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/subtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="Design starts with a right Match."
+        android:textColor="#888888"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeMessage" />
+
+    <LinearLayout
+        android:id="@+id/cardContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="18dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtext">
+
+        <!-- My Matches Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#F3F6FE"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/feature_button_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/match" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="My Matches"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- My Blueprints Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#F3F6FE"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/feature_button_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/file" /> <!-- Replace with your icon -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="My Blueprints"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#003366"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/homeBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_home" />
+
+        <ImageView
+            android:id="@+id/walletBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="48dp"
+            android:src="@drawable/wallet" />
+
+        <ImageView
+            android:id="@+id/profileBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="48dp"
+            android:src="@drawable/ic_profile"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
