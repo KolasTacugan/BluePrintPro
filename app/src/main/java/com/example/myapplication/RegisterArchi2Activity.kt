@@ -10,6 +10,6 @@ class RegisterArchi2Activity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_archi2)
-
+//hehe
     }
 }
