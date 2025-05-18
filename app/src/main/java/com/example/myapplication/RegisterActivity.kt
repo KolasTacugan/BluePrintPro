@@ -22,7 +22,7 @@ class RegisterActivity : Activity() {
 
         val edittextUsername = findViewById<EditText>(R.id.edittext_username)
         val edittextPassword = findViewById<EditText>(R.id.edittext_password)
-        val edittextConfirmPassword = findViewById<EditText>(R.id.edittext_confrimpassword)
+        val edittextConfirmPassword = findViewById<EditText>(R.id.edittext_confirmpassword)
         val buttonRegister = findViewById<Button>(R.id.button_register)
         val buttongotologin = findViewById<TextView>(R.id.text_gotologin)
 
