@@ -26,8 +26,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card"
-        android:layout_width="377dp"
-        android:layout_height="638dp"
+        android:layout_width="375dp"
+        android:layout_height="677dp"
         android:layout_marginTop="160dp"
         android:background="@drawable/landr_bg"
         android:elevation="6dp"
@@ -43,9 +43,9 @@
             android:id="@+id/text_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24sp"
             android:fontFamily="@font/montserrat"
             android:text="Welcome to"
-            android:layout_marginTop="24sp"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -67,9 +67,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Blueprint"
-                android:layout_marginBottom="12dp"
                 android:textColor="#0D3C80"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -97,7 +97,6 @@
             android:textColor="#000"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/edit_last_name"
-            app:layout_constraintHorizontalWeight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/app_name" />
 
@@ -114,7 +113,6 @@
             android:textColor="#000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontalWeight="1"
             app:layout_constraintStart_toEndOf="@id/edit_first_name"
             app:layout_constraintTop_toBottomOf="@id/app_name" />
 
@@ -225,6 +223,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_register" />
 
+        <TextView
+            android:id="@+id/text_gotologin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Already have an account? Go to Log in"
+            android:textColor="#000"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_continue_with" />
+
+
         <!-- Social buttons -->
         <LinearLayout
             android:id="@+id/social_buttons"
@@ -236,7 +247,7 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_continue_with">
+            app:layout_constraintTop_toBottomOf="@id/text_gotologin">
 
             <ImageButton
                 android:layout_width="0dp"

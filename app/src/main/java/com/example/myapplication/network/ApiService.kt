@@ -1,5 +1,6 @@
 package com.example.myapplication.network
 
+import com.example.myapplication.model.LoginUser
 import com.example.myapplication.model.User
 import retrofit2.Call
 import retrofit2.http.Body
@@ -9,5 +10,5 @@ interface ApiService {
     @POST("/user")
     fun registerUser(@Body user: User): Call<Map<String, Boolean>>
     @POST("/login")
-    fun loginUser(@Body user: User): Call<Map<String, Boolean>>
+    fun loginUser(@Body user: LoginUser): Call<Map<String, Boolean>>
 }

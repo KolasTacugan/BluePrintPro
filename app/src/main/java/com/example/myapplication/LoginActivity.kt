@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
+import com.example.myapplication.model.LoginUser
 import com.example.myapplication.model.User
 import com.example.myapplication.network.ApiClient
 import com.google.android.gms.auth.api.signin.*
@@ -41,7 +42,7 @@ class LoginActivity : Activity() {
         }
 
         textRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, SetupProfileActivity::class.java))
         }
 
         buttonLogin.setOnClickListener {
@@ -51,7 +52,7 @@ class LoginActivity : Activity() {
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please input credentials", Toast.LENGTH_LONG).show()
             } else {
-                val user = User(username = username, password = password)
+                val user = LoginUser(username = username, password = password)
 
                 ApiClient.retrofit.loginUser(user).enqueue(object : Callback<Map<String, Boolean>> {
                     override fun onResponse(
@@ -100,7 +101,7 @@ class LoginActivity : Activity() {
     }
 
     private fun navigateToLanding() {
-        val intent = Intent(this, PaymentActivity::class.java)
+        val intent = Intent(this, LandingActivity::class.java)
         startActivity(intent)
         finish()
     }
