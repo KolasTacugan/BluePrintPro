@@ -8,12 +8,6 @@ import java.util.concurrent.TimeUnit
 object ApiClient {
     private const val BASE_URL = "http://192.168.254.100:8080/"
 
-//    val retrofit: ApiService = Retrofit.Builder()
-//        .baseUrl(BASE_URL)
-//        .addConverterFactory(GsonConverterFactory.create())
-//        .build()
-//        .create(ApiService::class.java)
-
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)  // Increase from 10s
         .readTimeout(30, TimeUnit.SECONDS)
