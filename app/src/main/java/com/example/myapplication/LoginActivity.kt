@@ -1,13 +1,17 @@
 package com.example.myapplication
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
+import com.example.myapplication.model.User
+import com.example.myapplication.network.ApiClient
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : Activity() {
 
@@ -24,37 +28,48 @@ class LoginActivity : Activity() {
         val textRegister = findViewById<TextView>(R.id.text_register)
         val googleBtn = findViewById<ImageButton>(R.id.google_btn)
 
-        val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
-
         // Google Sign-In setup
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // Check if already signed in
+        // Check if already signed in with Google
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         if (acct != null) {
             navigateToLanding()
         }
 
         textRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         buttonLogin.setOnClickListener {
-            val username = edittextUsername.text.toString()
-            val password = edittextPassword.text.toString()
-            val registeredUsername = sharedPreferences.getString("username", null)
-            val registeredPassword = sharedPreferences.getString("password", null)
+            val username = edittextUsername.text.toString().trim()
+            val password = edittextPassword.text.toString().trim()
 
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please input credentials", Toast.LENGTH_LONG).show()
-            } else if (username == registeredUsername && password == registeredPassword) {
-                navigateToLanding()
             } else {
-                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_LONG).show()
+                val user = User(username = username, password = password)
+
+                ApiClient.retrofit.loginUser(user).enqueue(object : Callback<Map<String, Boolean>> {
+                    override fun onResponse(
+                        call: Call<Map<String, Boolean>>,
+                        response: Response<Map<String, Boolean>>
+                    ) {
+                        if (response.isSuccessful && response.body()?.get("success") == true) {
+                            Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_LONG).show()
+                            navigateToLanding()
+                        } else {
+                            Toast.makeText(this@LoginActivity, "Invalid username or password", Toast.LENGTH_LONG).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
+                        Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+                    }
+                })
             }
         }
 
