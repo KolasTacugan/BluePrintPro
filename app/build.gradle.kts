@@ -89,4 +89,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
 
+    implementation ("com.cloudinary:cloudinary-android:2.3.1")
+
+
 }

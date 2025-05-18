@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/timeline_graphic"
+
                 android:scaleType="fitCenter" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -97,14 +97,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
-            android:background="background"
+
             android:layout_marginTop="8dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Floor Plan.pdf"
-                android:textColor="#FFFFF"
+                android:textColor="#FFFFFF"
                 android:layout_weight="1" />
 
             <TextView
