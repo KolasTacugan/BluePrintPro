@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".LandingActivity">
-
+<!--push!-->
     <ImageView
         android:id="@+id/chatIcon"
         android:layout_width="24dp"
