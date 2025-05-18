@@ -7,7 +7,10 @@ import android.os.Bundle
 import android.provider.OpenableColumns
 import android.util.Log
 import android.widget.*
-import com.google.firebase.storage.FirebaseStorage
+import com.cloudinary.Cloudinary
+import com.cloudinary.utils.ObjectUtils
+import java.io.File
+import java.io.FileOutputStream
 import java.util.*
 
 class UploadActivity : Activity() {
@@ -17,9 +20,19 @@ class UploadActivity : Activity() {
     private val PICK_PDF_REQUEST = 1
     private var fileUri: Uri? = null
 
+    private val cloudinary by lazy {
+        val config = hashMapOf(
+            "cloud_name" to "dmlsl1ff3",
+            "api_key" to "611912686692629",
+            "api_secret" to "18ZLpaFKXrQpujuUA19dMV4u_uc"
+        )
+        Cloudinary(config)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload)
+
         val profileBtn = findViewById<ImageView>(R.id.profileBtn)
         val walletBtn = findViewById<ImageView>(R.id.walletBtn)
         val homeBtn = findViewById<ImageView>(R.id.homeBtn)
@@ -45,11 +58,9 @@ class UploadActivity : Activity() {
             finish()
         }
 
-        // Link the views
         uploadBox = findViewById(R.id.uploadBox)
         fileNameTextView = findViewById(R.id.fileName)
 
-        // Set onClickListener for uploadBox to pick PDF
         uploadBox.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "application/pdf"
@@ -57,7 +68,6 @@ class UploadActivity : Activity() {
         }
     }
 
-    // Handle the result of the file picker
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -67,12 +77,10 @@ class UploadActivity : Activity() {
                 fileUri = uri
                 Log.d("UploadActivity", "Selected URI: $uri")
 
-                // Get the file name from URI and update the TextView
                 val fileName = getFileNameFromUri(uri)
                 fileNameTextView.text = fileName
 
-                // Upload the PDF to Firebase
-                uploadPdfToFirebase(uri)
+                uploadPdfToCloudinary(uri)
             } else {
                 Toast.makeText(this, "No file selected.", Toast.LENGTH_SHORT).show()
             }
@@ -81,7 +89,6 @@ class UploadActivity : Activity() {
         }
     }
 
-    // Function to extract the file name from the URI
     private fun getFileNameFromUri(uri: Uri): String {
         return try {
             var name: String? = null
@@ -100,25 +107,36 @@ class UploadActivity : Activity() {
         }
     }
 
-    // Function to upload the PDF to Firebase Storage
-    private fun uploadPdfToFirebase(pdfUri: Uri) {
-        try {
-            val storage = FirebaseStorage.getInstance()
-            val storageRef = storage.reference
-            val pdfRef = storageRef.child("pdfs/${UUID.randomUUID()}.pdf")
+    private fun uploadPdfToCloudinary(pdfUri: Uri) {
+        Thread {
+            try {
+                // Convert Uri to File
+                val inputStream = contentResolver.openInputStream(pdfUri)
+                val tempFile = File.createTempFile("upload_", ".pdf", cacheDir)
+                val outputStream = FileOutputStream(tempFile)
 
-            pdfRef.putFile(pdfUri)
-                .addOnSuccessListener {
-                    Log.d("UploadActivity", "PDF uploaded successfully")
-                    Toast.makeText(this, "PDF uploaded successfully", Toast.LENGTH_SHORT).show()
+                inputStream?.copyTo(outputStream)
+                inputStream?.close()
+                outputStream.close()
+
+                // Upload to Cloudinary as "raw"
+                val uploadResult = cloudinary.uploader().upload(tempFile, ObjectUtils.asMap(
+                    "resource_type", "raw"
+                ))
+
+                val pdfUrl = uploadResult["url"] as String
+                Log.d("UploadActivity", "PDF uploaded successfully. URL: $pdfUrl")
+
+                runOnUiThread {
+                    Toast.makeText(this, "Upload successful!\nURL: $pdfUrl", Toast.LENGTH_LONG).show()
                 }
-                .addOnFailureListener { e ->
-                    Log.e("UploadActivity", "Upload failed: ${e.message}", e)
-                    Toast.makeText(this, "Upload failed: ${e.message}", Toast.LENGTH_SHORT).show()
+
+            } catch (e: Exception) {
+                Log.e("UploadActivity", "Upload failed: ${e.message}", e)
+                runOnUiThread {
+                    Toast.makeText(this, "Upload failed: ${e.message}", Toast.LENGTH_LONG).show()
                 }
-        } catch (e: Exception) {
-            Log.e("UploadActivity", "Error uploading file", e)
-            Toast.makeText(this, "Upload error: ${e.message}", Toast.LENGTH_LONG).show()
-        }
+            }
+        }.start()
     }
 }

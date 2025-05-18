@@ -18,6 +18,12 @@ class SubscriptionActivity : Activity() {
         val profileBtn = findViewById<ImageView>(R.id.profileBtn)
         val walletBtn = findViewById<ImageView>(R.id.walletBtn)
         val homeBtn = findViewById<ImageView>(R.id.homeBtn)
+        val buttonImg = findViewById<ImageView>(R.id.backBtn)
+        buttonImg.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         homeBtn.setOnClickListener {
             val intent = Intent(this, LandingActivity::class.java)

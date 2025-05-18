@@ -26,6 +26,15 @@ class HomeActivity : Activity() {
         val profileBtn = findViewById<ImageView>(R.id.profileBtn)
         val walletBtn = findViewById<ImageView>(R.id.walletBtn)
         val homeBtn = findViewById<ImageView>(R.id.homeBtn)
+        val settingsBtn = findViewById<ImageView>(R.id.settingsBtn)
+
+
+        settingsBtn.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
 
         homeBtn.setOnClickListener {
             val intent = Intent(this, LandingActivity::class.java)

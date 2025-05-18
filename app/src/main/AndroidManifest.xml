@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -73,6 +75,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="CLOUDINARY_URL"
+            android:value="cloudinary://123456789012345:abcdefghijklmno@dmlsl1ff3" />
+
     </application>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </manifest>
