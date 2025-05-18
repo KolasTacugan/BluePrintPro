@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/building_bg"
     tools:context=".SetupProfileActivity">
-
+//hehe
     <!-- White Rounded Panel -->
     <androidx.cardview.widget.CardView
         android:id="@+id/whiteCard"

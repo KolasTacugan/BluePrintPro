@@ -20,13 +20,19 @@ class RegisterActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val edittextUsername = findViewById<EditText>(R.id.edittext_username)
-        val edittextPassword = findViewById<EditText>(R.id.edittext_password)
-        val edittextConfirmPassword = findViewById<EditText>(R.id.edittext_confirmpassword)
+        val edittextFirstName= findViewById<EditText>(R.id.edit_first_name)
+        val edittextLastName= findViewById<EditText>(R.id.edit_last_name)
+        val editPhone = findViewById<EditText>(R.id.edit_phone)
+        val edittextUsername = findViewById<EditText>(R.id.edit_email)
+        val edittextPassword = findViewById<EditText>(R.id.edit_password)
+        val edittextConfirmPassword = findViewById<EditText>(R.id.edit_confirm_password)
         val buttonRegister = findViewById<Button>(R.id.button_register)
         val buttongotologin = findViewById<TextView>(R.id.text_gotologin)
 
         buttonRegister.setOnClickListener {
+            val firstName = edittextFirstName.text.toString().trim()
+            val lastName = edittextLastName.text.toString().trim()
+            val phone = editPhone.text.toString().trim()
             val username = edittextUsername.text.toString().trim()
             val password = edittextPassword.text.toString().trim()
             val confirmPassword = edittextConfirmPassword.text.toString().trim()
@@ -36,7 +42,13 @@ class RegisterActivity : Activity() {
             } else if (password != confirmPassword) {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_LONG).show()
             } else {
-                val user = User(username = username, password = password)
+                val user = User(
+                    username = username,
+                    password = password,
+                    firstName = firstName,
+                    lastName = lastName,
+                    phone = phone
+                )
 
                 ApiClient.retrofit.registerUser(user).enqueue(object : Callback<Map<String, Boolean>> {
                     override fun onResponse(
