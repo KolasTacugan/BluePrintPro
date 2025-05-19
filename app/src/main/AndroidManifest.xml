@@ -10,13 +10,18 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="31">
-
+        <activity
+            android:name=".AddBlueprintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BlueprintListActivity"
+            android:exported="false" />
         <activity
             android:name=".RegisterArchi2Activity"
             android:exported="false" />
@@ -87,11 +92,9 @@
         <meta-data
             android:name="CLOUDINARY_URL"
             android:value="cloudinary://123456789012345:abcdefghijklmno@dmlsl1ff3" />
-
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
-
     </application>
 
 </manifest>
