@@ -74,13 +74,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/designStylesLabel">
 
-                <RadioButton android:text="Modern" />
-
-                <RadioButton android:text="Contemporary" />
-
-                <RadioButton android:text="Traditional" />
-
-                <RadioButton android:text="Minimalist" />
+                <CheckBox android:id="@+id/checkModern" android:text="Modern" />
+                <CheckBox android:id="@+id/checkContemporary" android:text="Contemporary" />
+                <CheckBox android:id="@+id/checkTraditional" android:text="Traditional" />
+                <CheckBox android:id="@+id/checkMinimalist" android:text="Minimalist" />
             </GridLayout>
 
             <!-- Work Specialization Label -->
@@ -105,11 +102,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/workLabel">
 
-                <RadioButton android:text="Residential" />
-
-                <RadioButton android:text="Industrial" />
-
-                <RadioButton android:text="Commercial" />
+                <CheckBox android:id="@+id/checkResidential" android:text="Residential" />
+                <CheckBox android:id="@+id/checkIndustrial" android:text="Industrial" />
+                <CheckBox android:id="@+id/checkCommercial" android:text="Commercial" />
             </GridLayout>
 
             <!-- Labor Cost Label -->
@@ -150,7 +145,6 @@
                     android:text="High" />
             </RadioGroup>
 
-
             <!-- Service Location Label -->
             <TextView
                 android:id="@+id/serviceLocationLabel"
@@ -188,7 +182,6 @@
                     android:layout_height="wrap_content"
                     android:text="Rural" />
             </RadioGroup>
-
 
             <!-- City/Province -->
             <EditText
