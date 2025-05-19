@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import com.example.myapplication.model.LoginArchi
+import com.example.myapplication.model.LoginResponse
 import com.example.myapplication.model.LoginUser
 import com.example.myapplication.model.User
 import com.example.myapplication.network.ApiClient
@@ -23,6 +24,8 @@ class LoginActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
 
         val edittextUsername = findViewById<EditText>(R.id.edittext_username)
         val edittextPassword = findViewById<EditText>(R.id.edittext_password)
@@ -58,42 +61,41 @@ class LoginActivity : Activity() {
             val user = LoginUser(username = username, password = password)
             val archiUser = LoginArchi(username = username, password = password)
 
-            // Try logging in as client first
-            ApiClient.retrofit.loginUser(user).enqueue(object : Callback<Map<String, Boolean>> {
-                override fun onResponse(
-                    call: Call<Map<String, Boolean>>,
-                    response: Response<Map<String, Boolean>>
-                ) {
-                    if (response.isSuccessful && response.body()?.get("success") == true) {
-                        Toast.makeText(this@LoginActivity, "Login Successful (Client)", Toast.LENGTH_LONG).show()
+            // Try Client login first
+            ApiClient.retrofit.loginUser(user).enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    if (response.isSuccessful && response.body()?.success == true) {
+                        val userId = response.body()?.id ?: "Unknown"
+                        prefs.edit().putString("user_id", userId).apply()
+                        Toast.makeText(this@LoginActivity, "Client Login Successful. ID: $userId", Toast.LENGTH_LONG).show()
                         navigateToLanding()
                     } else {
-                        Toast.makeText(this@LoginActivity, "Invalid username or password", Toast.LENGTH_LONG).show()
+                        // If client login fails, try architect login
+                        ApiClient.retrofit.loginArchi(archiUser).enqueue(object : Callback<LoginResponse> {
+                            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                                if (response.isSuccessful && response.body()?.success == true) {
+                                    val userId = response.body()?.id ?: "Unknown"
+                                    prefs.edit().putString("user_id", userId).apply()
+                                    Toast.makeText(this@LoginActivity, "Architect Login Successful. ID: $userId", Toast.LENGTH_LONG).show()
+                                    navigateToLandingArchi()
+                                } else {
+                                    Toast.makeText(this@LoginActivity, "Invalid username or password", Toast.LENGTH_LONG).show()
+                                }
+                            }
+
+                            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                                Toast.makeText(this@LoginActivity, "Architect login error: ${t.message}", Toast.LENGTH_LONG).show()
+                            }
+                        })
                     }
                 }
 
-                override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
-                    Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
-                }
-            })
-            ApiClient.retrofit.loginArchi(archiUser).enqueue(object : Callback<Map<String, Boolean>> {
-                override fun onResponse(
-                    call: Call<Map<String, Boolean>>,
-                    response: Response<Map<String, Boolean>>
-                ) {
-                    if (response.isSuccessful && response.body()?.get("success") == true) {
-                        Toast.makeText(this@LoginActivity, "Login Successful (Architect)", Toast.LENGTH_LONG).show()
-                        navigateToLandingArchi()
-                    } else {
-                        Toast.makeText(this@LoginActivity, "Invalid username or password", Toast.LENGTH_LONG).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
-                    Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    Toast.makeText(this@LoginActivity, "Client login error: ${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
         }
+
         googleBtn.setOnClickListener {
             signInWithGoogle()
         }
