@@ -118,7 +118,7 @@
             <!-- Login Button -->
             <Button
                 android:id="@+id/button_login"
-                android:layout_width="130dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/button_linkedin"

@@ -9,7 +9,6 @@
     android:background="@drawable/gradient_bg"
     tools:context=".RegisterActivity">
 
-    <!-- Top background image -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="0dp"
@@ -23,28 +22,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card"
-        android:layout_width="375dp"
-        android:layout_height="677dp"
+        android:layout_width="378dp"
+        android:layout_height="729dp"
         android:layout_marginTop="160dp"
         android:background="@drawable/landr_bg"
         android:elevation="6dp"
-        android:padding="20dp"
+        android:padding="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backgroundImage"
         app:layout_constraintVertical_bias="0.406">
 
-        <!-- Welcome Text -->
         <TextView
             android:id="@+id/text_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24sp"
-            android:fontFamily="@font/montserrat"
+            android:layout_marginTop="16sp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Welcome to"
             android:textColor="#000000"
             android:textSize="24sp"
@@ -53,7 +50,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- App Name -->
         <LinearLayout
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
@@ -68,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Blueprint"
                 android:textColor="#0D3C80"
                 android:textSize="24sp"
@@ -77,14 +73,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Pro"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- First Name -->
         <EditText
             android:id="@+id/edit_first_name"
             android:layout_width="0dp"
@@ -92,6 +87,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/edittext_box"
+            android:fontFamily="@font/poppins_reg"
             android:hint="First name"
             android:padding="12dp"
             android:textColor="#000"
@@ -100,7 +96,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/app_name" />
 
-        <!-- Last Name -->
         <EditText
             android:id="@+id/edit_last_name"
             android:layout_width="0dp"
@@ -108,6 +103,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edittext_box"
+            android:fontFamily="@font/poppins_reg"
             android:hint="Last name"
             android:padding="12dp"
             android:textColor="#000"
@@ -116,13 +112,13 @@
             app:layout_constraintStart_toEndOf="@id/edit_first_name"
             app:layout_constraintTop_toBottomOf="@id/app_name" />
 
-        <!-- Email -->
         <EditText
             android:id="@+id/edit_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:background="@drawable/edittext_box"
+            android:fontFamily="@font/poppins_reg"
             android:hint="Email Address"
             android:padding="12dp"
             android:textColor="#000"
@@ -131,13 +127,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_first_name" />
 
-        <!-- Password -->
         <EditText
             android:id="@+id/edit_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:background="@drawable/edittext_box"
+            android:fontFamily="@font/poppins_reg"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="12dp"
@@ -147,13 +143,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_email" />
 
-        <!-- Confirm Password -->
         <EditText
             android:id="@+id/edit_confirm_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:background="@drawable/edittext_box"
+            android:fontFamily="@font/poppins_reg"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:padding="12dp"
@@ -163,13 +159,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_password" />
 
-        <!-- Phone -->
         <EditText
             android:id="@+id/edit_phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:background="@drawable/edittext_box"
+            android:fontFamily="@font/poppins_reg"
             android:hint="Phone Number"
             android:inputType="phone"
             android:padding="12dp"
@@ -179,35 +175,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_confirm_password" />
 
-        <!-- Terms Checkbox -->
         <CheckBox
             android:id="@+id/checkbox_terms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_reg"
             android:text="Agree to Terms and Conditions and Privacy Policy"
             android:textColor="#000"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_phone" />
 
-        <!-- Register Button -->
-
-        <!-- Continue with -->
-
         <Button
             android:id="@+id/button_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/button_linkedin"
+
             android:backgroundTint="#0D3C80"
+            android:fontFamily="@font/poppins_reg"
             android:padding="14dp"
             android:text="Register"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/checkbox_terms" />
 
@@ -216,6 +208,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_reg"
             android:text="or continue with"
             android:textColor="#000"
             android:textSize="14sp"
@@ -228,6 +221,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_lightitalic"
             android:text="Already have an account? Go to Log in"
             android:textColor="#000"
             android:textSize="14sp"
@@ -235,8 +229,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_continue_with" />
 
-
-        <!-- Social buttons -->
         <LinearLayout
             android:id="@+id/social_buttons"
             android:layout_width="0dp"
@@ -267,7 +259,6 @@
                 android:background="@drawable/social_btn"
                 android:contentDescription="Facebook"
                 android:src="@drawable/facebook" />
-
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -275,7 +266,8 @@
         android:id="@+id/text_motto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins_reg"
         android:gravity="center"
         android:text="Design Starts with the Right Match."
         android:textColor="#000000"
