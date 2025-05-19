@@ -18,7 +18,7 @@ class EditProfileActivity : Activity() {
         val editLName = findViewById<EditText>(R.id.edittext_edit_lName)
         val editEmail = findViewById<EditText>(R.id.edittext_edit_email)
         val editPhone = findViewById<EditText>(R.id.edittext_edit_phoneNum)
-        val editGender = findViewById<EditText>(R.id.edittext_edit_gender)
+
        // val buttonUpdate = findViewById<Button>(R.id.button_update_information)
 
 
@@ -26,7 +26,7 @@ class EditProfileActivity : Activity() {
         editLName.setText(UserData.lastName)
         editEmail.setText(UserData.email)
         editPhone.setText(UserData.phone)
-        editGender.setText(UserData.gender)
+
 
         /*buttonUpdate.setOnClickListener {
 

@@ -98,22 +98,8 @@
                         android:hint="Enter last name"
                         android:textColor="#000"/>
 
-                    <!-- Gender -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gender"
-                        android:textColor="#444"
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
-                    <EditText
-                        android:id="@+id/edittext_edit_gender"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="10dp"
-                        android:hint="Enter gender"
-                        android:textColor="#000"/>
+
+
 
                     <!-- Phone Number -->
                     <TextView

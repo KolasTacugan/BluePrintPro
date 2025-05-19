@@ -109,7 +109,7 @@ class RegisterArchi2Activity : Activity() {
             Log.d("RegisterArchi2", "Sending Architect: $architect")
 
             // Send to backend
-            ApiClient.retrofit.registerArchitect(architect)
+            ApiClient.api.registerArchitect(architect)
                 .enqueue(object : Callback<Map<String, Boolean>> {
                     override fun onResponse(
                         call: Call<Map<String, Boolean>>,

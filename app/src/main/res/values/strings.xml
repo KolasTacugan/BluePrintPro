@@ -11,6 +11,7 @@
 
     <!-- Spinner Options -->
     <string-array name="style_options">
+        <item>Any</item>
         <item>Modern</item>
         <item>Contemporary</item>
         <item>Traditional</item>
@@ -18,18 +19,21 @@
     </string-array>
 
     <string-array name="budget_options">
+        <item>Any</item>
         <item>Low</item>
         <item>Medium</item>
         <item>High</item>
     </string-array>
 
     <string-array name="type_options">
+        <item>Any</item>
         <item>Residential</item>
         <item>Commercial</item>
         <item>Industrial</item>
     </string-array>
 
     <string-array name="location_options">
+        <item>Any</item>
         <item>Urban</item>
         <item>Suburban</item>
         <item>Rural</item>

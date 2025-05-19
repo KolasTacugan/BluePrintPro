@@ -62,7 +62,7 @@ class LoginActivity : Activity() {
             val archiUser = LoginArchi(username = username, password = password)
 
             // Try Client login first
-            ApiClient.retrofit.loginUser(user).enqueue(object : Callback<LoginResponse> {
+            ApiClient.api.loginUser(user).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful && response.body()?.success == true) {
                         val userId = response.body()?.id ?: "Unknown"
@@ -71,7 +71,7 @@ class LoginActivity : Activity() {
                         navigateToLanding()
                     } else {
                         // If client login fails, try architect login
-                        ApiClient.retrofit.loginArchi(archiUser).enqueue(object : Callback<LoginResponse> {
+                        ApiClient.api.loginArchi(archiUser).enqueue(object : Callback<LoginResponse> {
                             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                                 if (response.isSuccessful && response.body()?.success == true) {
                                     val userId = response.body()?.id ?: "Unknown"
@@ -124,7 +124,7 @@ class LoginActivity : Activity() {
 
 
     private fun navigateToLanding() {
-        val intent = Intent(this, LandingActivity::class.java)
+        val intent = Intent(this, PaymentActivity::class.java)
         startActivity(intent)
         finish()
     }

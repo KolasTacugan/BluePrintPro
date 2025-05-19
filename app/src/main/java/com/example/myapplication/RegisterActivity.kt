@@ -63,7 +63,7 @@ class RegisterActivity : Activity() {
                     phone = phone
                 )
 
-                ApiClient.retrofit.registerUser(user).enqueue(object : Callback<Map<String, Boolean>> {
+                ApiClient.api.registerUser(user).enqueue(object : Callback<Map<String, Boolean>> {
                     override fun onResponse(
                         call: Call<Map<String, Boolean>>,
                         response: Response<Map<String, Boolean>>
@@ -131,7 +131,7 @@ class RegisterActivity : Activity() {
                 phone = "" // let user add later
             )
 
-            ApiClient.retrofit.registerUser(user).enqueue(object : Callback<Map<String, Boolean>> {
+            ApiClient.api.registerUser(user).enqueue(object : Callback<Map<String, Boolean>> {
                 override fun onResponse(call: Call<Map<String, Boolean>>, response: Response<Map<String, Boolean>>) {
                     if (response.isSuccessful && response.body()?.get("success") == true) {
                         Toast.makeText(this@RegisterActivity, "Google Sign Up Successful", Toast.LENGTH_LONG).show()

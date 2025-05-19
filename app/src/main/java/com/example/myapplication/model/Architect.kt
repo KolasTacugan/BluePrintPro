@@ -12,5 +12,6 @@ data class Architect(
     val serviceLocation: String,
     val city: String,
     val experience: String,
-    val prcLicense: String
+    val prcLicense: String,
+
 )
