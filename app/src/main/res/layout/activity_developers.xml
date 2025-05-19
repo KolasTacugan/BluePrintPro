@@ -11,9 +11,10 @@
     <RelativeLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="130dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-4dp"
+        android:layout_marginBottom="0dp"
         android:paddingStart="16dp"
         android:paddingTop="20dp"
         android:paddingEnd="16dp">
@@ -26,7 +27,7 @@
             android:layout_centerVertical="true"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/back" />
+            android:src="@drawable/blueback" />
 
         <TextView
             android:id="@+id/title_developers"
@@ -59,23 +60,27 @@
             android:padding="16dp">
 
             <!-- Developer: NICOLE -->
+
+            <!-- Developer: Sam -->
+
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="vertical"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/rounded_shadow_box">
+                android:background="@drawable/rounded_shadow_box"
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/dev_pos1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:letterSpacing="0.05"
                     android:text="Back-End Developer"
                     android:textColor="#21272B"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="25dp"
-                    android:letterSpacing="0.05"/>
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -90,23 +95,23 @@
                         android:background="@drawable/circle_background"
                         android:clipToOutline="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/nic"/>
+                        android:src="@drawable/nic" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/dev1_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:letterSpacing="0.08"
                             android:text="Francheska Tacugan"
                             android:textColor="#21272B"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:letterSpacing="0.08"/>
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/dev1_email"
@@ -115,7 +120,7 @@
                             android:text="ftacugan@gmail.com"
                             android:textColor="#21272B"
                             android:textSize="14sp"
-                            android:textStyle="italic"/>
+                            android:textStyle="italic" />
 
                     </LinearLayout>
 
@@ -123,17 +128,16 @@
 
                 <Button
                     android:id="@+id/btn_github_nicole"
-                    android:layout_marginLeft="219dp"
-                    android:layout_marginTop="23dp"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="View Github"
-                    android:textColor="#FFFFFF"
+                    android:layout_marginLeft="219dp"
+                    android:layout_marginTop="23dp"
+                    android:background="@drawable/button_linkedin"
                     android:fontFamily="@font/montserrat"
-                    android:background="@drawable/button_linkedin"/>
+                    android:text="View Github"
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
 
-            <!-- Developer: Sam -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -179,7 +183,7 @@
                             android:layout_height="wrap_content"
                             android:text="Samantha Rubica"
                             android:textColor="#21272B"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.08"/>
 
@@ -254,7 +258,7 @@
                             android:layout_height="wrap_content"
                             android:text="Gene Cinto"
                             android:textColor="#21272B"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.08"/>
 

@@ -18,12 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/menuButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_menu"
-            android:contentDescription="Menu" />
 
         <TextView
             android:id="@+id/topBarTitle"
@@ -55,7 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Transaction History"
+            android:text="Check out"
             android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="#000000" />
@@ -64,7 +58,7 @@
             android:id="@+id/addEwalletButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add E-wallet"
+            android:text="BUY NOw"
             android:backgroundTint="#003366"
             android:textColor="#FFFFFF" />
     </LinearLayout>
@@ -116,7 +110,7 @@
                         android:id="@+id/statusText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PENDING"
+                        android:text="PATENT"
                         android:textSize="12sp"
                         android:textColor="#003366"
                         android:backgroundTint="#E6ECF8"
@@ -192,7 +186,7 @@
                         android:id="@+id/statusText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PENDING"
+                        android:text="PATENT"
                         android:textSize="12sp"
                         android:textColor="#003366"
                         android:backgroundTint="#E6ECF8"
@@ -267,7 +261,7 @@
                         android:id="@+id/statusText3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="REFUNDED"
+                        android:text="PATENT"
                         android:textSize="12sp"
                         android:textColor="#003366"
                         android:backgroundTint="#E6ECF8"
