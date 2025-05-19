@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import com.example.myapplication.model.LoginArchi
 import com.example.myapplication.model.LoginResponse
@@ -65,18 +66,30 @@ class LoginActivity : Activity() {
             ApiClient.api.loginUser(user).enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful && response.body()?.success == true) {
-                        val userId = response.body()?.id ?: "Unknown"
+                        val userId = response.body()?.id
+                        if (!userId.isNullOrBlank()) {
+                            prefs.edit().putString("user_id", userId).apply()
+                            Log.d("LoginActivity", "Client userId saved: $userId")
+                        } else {
+                            Log.e("LoginActivity", "Client login response missing userId")
+                        }
                         prefs.edit().putString("user_id", userId).apply()
-                        Toast.makeText(this@LoginActivity, "Client Login Successful. ID: $userId", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@LoginActivity, "Client Login Successful.", Toast.LENGTH_LONG).show()
                         navigateToLanding()
                     } else {
                         // If client login fails, try architect login
                         ApiClient.api.loginArchi(archiUser).enqueue(object : Callback<LoginResponse> {
                             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                                 if (response.isSuccessful && response.body()?.success == true) {
-                                    val userId = response.body()?.id ?: "Unknown"
+                                    val userId = response.body()?.id
+                                    if (!userId.isNullOrBlank()) {
+                                        prefs.edit().putString("user_id", userId).apply()
+                                        Log.d("LoginActivity", "Architect userId saved: $userId")
+                                    } else {
+                                        Log.e("LoginActivity", "Architect login response missing userId")
+                                    }
                                     prefs.edit().putString("user_id", userId).apply()
-                                    Toast.makeText(this@LoginActivity, "Architect Login Successful. ID: $userId", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(this@LoginActivity, "Architect Login Successful.", Toast.LENGTH_LONG).show()
                                     navigateToLandingArchi()
                                 } else {
                                     Toast.makeText(this@LoginActivity, "Invalid username or password", Toast.LENGTH_LONG).show()
@@ -129,7 +142,7 @@ class LoginActivity : Activity() {
         finish()
     }
     private fun navigateToLandingArchi() {
-        val intent = Intent(this, DashboardArchiActivity::class.java)
+        val intent = Intent(this, UploadActivity::class.java)
         startActivity(intent)
         finish()
     }

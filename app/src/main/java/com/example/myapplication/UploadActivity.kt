@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,7 +13,6 @@ import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import java.io.File
 import java.io.FileOutputStream
-import java.util.*
 
 class UploadActivity : Activity() {
 
@@ -19,6 +20,7 @@ class UploadActivity : Activity() {
     private lateinit var fileNameTextView: TextView
     private val PICK_PDF_REQUEST = 1
     private var fileUri: Uri? = null
+    private var uploadedUrl: String? = null
 
     private val cloudinary by lazy {
         val config = hashMapOf(
@@ -29,6 +31,7 @@ class UploadActivity : Activity() {
         Cloudinary(config)
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload)
@@ -37,35 +40,33 @@ class UploadActivity : Activity() {
         val walletBtn = findViewById<ImageView>(R.id.walletBtn)
         val homeBtn = findViewById<ImageView>(R.id.homeBtn)
 
+        uploadBox = findViewById(R.id.uploadBox)
+        fileNameTextView = findViewById(R.id.fileName)
+
         homeBtn.setOnClickListener {
-            val intent = Intent(this, LandingActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-            finish()
+            goTo(LandingActivity::class.java)
         }
 
         profileBtn.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-            finish()
+            goTo(HomeActivity::class.java)
         }
 
         walletBtn.setOnClickListener {
-            val intent = Intent(this, PaymentActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-            finish()
+            goTo(PaymentActivity::class.java)
         }
-
-        uploadBox = findViewById(R.id.uploadBox)
-        fileNameTextView = findViewById(R.id.fileName)
 
         uploadBox.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "application/pdf"
             startActivityForResult(Intent.createChooser(intent, "Select PDF"), PICK_PDF_REQUEST)
         }
+    }
+
+    private fun goTo(target: Class<*>) {
+        val intent = Intent(this, target)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -80,6 +81,7 @@ class UploadActivity : Activity() {
                 val fileName = getFileNameFromUri(uri)
                 fileNameTextView.text = fileName
 
+                // Start uploading immediately after selection
                 uploadPdfToCloudinary(uri)
             } else {
                 Toast.makeText(this, "No file selected.", Toast.LENGTH_SHORT).show()
@@ -110,7 +112,6 @@ class UploadActivity : Activity() {
     private fun uploadPdfToCloudinary(pdfUri: Uri) {
         Thread {
             try {
-                // Convert Uri to File
                 val inputStream = contentResolver.openInputStream(pdfUri)
                 val tempFile = File.createTempFile("upload_", ".pdf", cacheDir)
                 val outputStream = FileOutputStream(tempFile)
@@ -119,16 +120,32 @@ class UploadActivity : Activity() {
                 inputStream?.close()
                 outputStream.close()
 
-                // Upload to Cloudinary as "raw"
                 val uploadResult = cloudinary.uploader().upload(tempFile, ObjectUtils.asMap(
                     "resource_type", "raw"
                 ))
 
-                val pdfUrl = uploadResult["url"] as String
-                Log.d("UploadActivity", "PDF uploaded successfully. URL: $pdfUrl")
+                val resultUrl = uploadResult["url"] as? String
+                Log.d("UploadActivity", "Cloudinary upload result: $uploadResult")
 
                 runOnUiThread {
-                    Toast.makeText(this, "Upload successful!\nURL: $pdfUrl", Toast.LENGTH_LONG).show()
+                    if (resultUrl != null) {
+                        uploadedUrl = resultUrl
+                        val prefs = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+                        val userID = prefs.getString("user_id", null)
+
+                        if (userID != null) {
+                            val intent = Intent(this, AddBlueprintActivity::class.java).apply {
+                                putExtra("userID", userID)
+                                putExtra("pdfUrl", uploadedUrl)
+                            }
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            Toast.makeText(this, "User ID not found. Login again.", Toast.LENGTH_LONG).show()
+                        }
+                    } else {
+                        Toast.makeText(this, "Failed to get upload URL.", Toast.LENGTH_LONG).show()
+                    }
                 }
 
             } catch (e: Exception) {
