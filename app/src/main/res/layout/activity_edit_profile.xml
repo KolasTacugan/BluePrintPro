@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- FrameLayout to stack the profile image on top of the CardView -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -20,12 +19,12 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="8dp"
                 android:layout_marginTop="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:backgroundTint="#FFFFFF">
+                android:backgroundTint="#FFFFFF"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -33,20 +32,18 @@
                     android:orientation="vertical"
                     android:padding="24dp">
 
-                    <!-- Spacer to offset for image -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="30dp" />
 
-                    <!-- Title -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="Edit Profile"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
                         android:textColor="#000000"
-                        android:layout_gravity="center_horizontal"/>
+                        android:textSize="20sp"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <!-- First Name -->
                     <TextView
@@ -54,15 +51,19 @@
                         android:layout_height="wrap_content"
                         android:text="First Name"
                         android:textColor="#444"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/poppins_semibold" />
+
                     <EditText
                         android:id="@+id/edittext_edit_fName"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="10dp"
                         android:hint="Enter first name"
-                        android:textColor="#000"/>
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <!-- Middle Name -->
                     <TextView
@@ -71,15 +72,18 @@
                         android:text="Middle Name"
                         android:textColor="#444"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold" />
+
                     <EditText
                         android:id="@+id/edittext_edit_mName"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="10dp"
                         android:hint="Enter middle name"
-                        android:textColor="#000"/>
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <!-- Last Name -->
                     <TextView
@@ -88,15 +92,18 @@
                         android:text="Last Name"
                         android:textColor="#444"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold" />
+
                     <EditText
                         android:id="@+id/edittext_edit_lName"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="10dp"
                         android:hint="Enter last name"
-                        android:textColor="#000"/>
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <!-- Gender -->
                     <TextView
@@ -105,15 +112,18 @@
                         android:text="Gender"
                         android:textColor="#444"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold" />
+
                     <EditText
                         android:id="@+id/edittext_edit_gender"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="10dp"
                         android:hint="Enter gender"
-                        android:textColor="#000"/>
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <!-- Phone Number -->
                     <TextView
@@ -122,15 +132,18 @@
                         android:text="Phone Number"
                         android:textColor="#444"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold" />
+
                     <EditText
                         android:id="@+id/edittext_edit_phoneNum"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="10dp"
                         android:hint="Enter phone number"
-                        android:textColor="#000"/>
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <!-- Email -->
                     <TextView
@@ -139,42 +152,45 @@
                         android:text="Email Address"
                         android:textColor="#444"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_semibold" />
+
                     <EditText
                         android:id="@+id/edittext_edit_email"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="10dp"
                         android:hint="Enter email"
-                        android:textColor="#000"/>
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <!-- Change Password Button -->
                     <Button
                         android:id="@+id/btn_change_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Change Password"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="#0D3C80"
                         android:layout_marginTop="24dp"
-                        android:padding="10dp"
-                        android:textStyle="bold"/>
+                        android:backgroundTint="#0D3C80"
+                        android:text="Change Password"
+                        android:background="@drawable/button_linkedin"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                     <!-- Save Button (smaller) -->
                     <Button
                         android:id="@+id/btn_save"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Save"
-                        android:textColor="#000"
-                        android:backgroundTint="#E3E9F7"
                         android:layout_gravity="end"
                         android:layout_marginTop="12dp"
+                        android:backgroundTint="#E3E9F7"
                         android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp"/>
+                        android:paddingRight="20dp"
+                        android:paddingBottom="10dp"
+                        android:text="Save"
+                        android:textColor="#000" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -188,7 +204,7 @@
                 android:src="@drawable/profile"
                 android:background="@drawable/circle_background1"
                 android:padding="4dp"
-                android:elevation="12dp"/>
+                android:elevation="12dp" />
         </FrameLayout>
     </LinearLayout>
 </ScrollView>
