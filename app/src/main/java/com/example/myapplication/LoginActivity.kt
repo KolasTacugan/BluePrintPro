@@ -83,7 +83,7 @@ class LoginActivity : Activity() {
                 ) {
                     if (response.isSuccessful && response.body()?.get("success") == true) {
                         Toast.makeText(this@LoginActivity, "Login Successful (Architect)", Toast.LENGTH_LONG).show()
-                        navigateToLanding()
+                        navigateToLandingArchi()
                     } else {
                         Toast.makeText(this@LoginActivity, "Invalid username or password", Toast.LENGTH_LONG).show()
                     }
@@ -120,27 +120,14 @@ class LoginActivity : Activity() {
         }
     }
 
-//    private fun tryArchitectLogin(archiUser: LoginArchi) {
-//        ApiClient.retrofit.loginArchi(archiUser).enqueue(object : Callback<Map<String, Boolean>> {
-//            override fun onResponse(
-//                call: Call<Map<String, Boolean>>,
-//                response: Response<Map<String, Boolean>>
-//            ) {
-//                if (response.isSuccessful && response.body()?.get("success") == true) {
-//                    Toast.makeText(this@LoginActivity, "Login Successful (Architect)", Toast.LENGTH_LONG).show()
-//                    navigateToLanding()
-//                } else {
-//                    Toast.makeText(this@LoginActivity, "Invalid username or password", Toast.LENGTH_LONG).show()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<Map<String, Boolean>>, t: Throwable) {
-//                Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
-//            }
-//        })
-//    }
+
     private fun navigateToLanding() {
         val intent = Intent(this, LandingActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun navigateToLandingArchi() {
+        val intent = Intent(this, DashboardArchiActivity::class.java)
         startActivity(intent)
         finish()
     }

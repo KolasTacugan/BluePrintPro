@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 
 class LandingActivity : Activity() {
     @SuppressLint("MissingInflatedId")
@@ -19,7 +20,22 @@ class LandingActivity : Activity() {
         val marketBtn = findViewById<LinearLayout>(R.id.browseMarket)
         val profileBtn = findViewById<ImageView>(R.id.profileBtn)
         val transacBtn = findViewById<ImageView>(R.id.walletBtn)
+        val chatIcon = findViewById<ImageView>(R.id.chatIcon)
+        val projectrack = findViewById<TextView>(R.id.projectTrack)
 
+        projectrack.setOnClickListener {
+            val intent = Intent(this, ProjectTrackerActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
+
+        chatIcon.setOnClickListener {
+            val intent = Intent(this, MessagesActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
         archiBtn.setOnClickListener {
             val intent = Intent(this, MatchingActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)

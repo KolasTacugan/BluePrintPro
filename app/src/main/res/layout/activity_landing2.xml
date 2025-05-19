@@ -166,6 +166,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/projectTrack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="view all projects"

@@ -27,7 +27,14 @@ class HomeActivity : Activity() {
         val walletBtn = findViewById<ImageView>(R.id.walletBtn)
         val homeBtn = findViewById<ImageView>(R.id.homeBtn)
         val settingsBtn = findViewById<ImageView>(R.id.settingsBtn)
+        val userName = findViewById<TextView>(R.id.userName)
 
+        userName.setOnClickListener {
+            val intent = Intent(this, EditProfileActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
 
         settingsBtn.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)

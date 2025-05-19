@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,14 @@ class ComplianceCheckActivity : Activity() {
         val profileBtn = findViewById<ImageView>(R.id.profileBtn)
         val walletBtn = findViewById<ImageView>(R.id.walletBtn)
         val homeBtn = findViewById<ImageView>(R.id.homeBtn)
+        val btnReuploadDesign = findViewById<Button>(R.id.btnReuploadDesign)
+
+        btnReuploadDesign.setOnClickListener {
+            val intent = Intent(this, UploadActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
 
         homeBtn.setOnClickListener {
             val intent = Intent(this, LandingActivity::class.java)
